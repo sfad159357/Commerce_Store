@@ -1,0 +1,5 @@
+<h1>購物網站試作</h1>
+
+取得購物車後，cart.id不便。一旦購物車內的商品發生更動，generateToken雖然參數是cart.id，但useEffect依賴cart此物件，一旦cart改變，就會向commerce.checkout請求產生新的token，所以checkoutToken會不斷發生改變。
+
+在Checkout元件產生的checkoutToken物件，會以prop傳送給子元件AddressForm元件，作為參數來向commerce API呼叫請求shippingCountry, shippingOptions；也向Review元件傳送作遞迴，呈列出商品名稱、數量及價格；也向PaymentForm元件傳送，遞迴出商品項目來建立訂單，以及post給commerce結帳訂單的參數之一。
